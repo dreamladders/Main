@@ -4,152 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Ladders | Intelligent Solutions Ecosystem</title>
-    <meta name="description" content="An evolving ecosystem bridging Engineering, AI, and Creative Media.">
     
-    <!-- Tailwind & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: '#3b82f6',
+                        dark: '#050505',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .card-hover:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
-        transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        :root { --accent: #3b82f6; }
+        body { background-color: #050505; color: #e2e8f0; overflow-x: hidden; }
+        
+        /* Noise Texture for hand-crafted feel */
+        .noise::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            opacity: 0.03; pointer-events: none; z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .mesh-gradient {
+            background: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+        }
+
+        .bento-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+            outline: none;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
+<body class="noise mesh-gradient min-h-screen">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass top-0">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-black/50 backdrop-blur-2xl border border-white/10 rounded-3xl px-6 py-3 shadow-2xl">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">D</div>
-                <span class="text-xl font-bold tracking-widest text-white uppercase">Dream Ladders</span>
+                <div class="w-9 h-9 bg-brand rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-brand/20">D</div>
+                <span class="font-bold tracking-widest text-xs md:text-sm uppercase">Dream Ladders</span>
             </div>
-            <div class="hidden md:flex gap-10 text-xs font-semibold uppercase tracking-widest text-slate-400">
-                <a href="#solutions" class="hover:text-blue-400 transition">Solutions</a>
-                <a href="#vision" class="hover:text-blue-400 transition">Vision</a>
-                <a href="#contact" class="px-5 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500 hover:text-white transition">Get Started</a>
+            <div class="hidden md:flex gap-10 items-center font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                <a href="#solutions" class="hover:text-brand transition">Solutions</a>
+                <a href="#vision" class="hover:text-brand transition">Vision</a>
+                <a href="#contact" class="bg-white text-black px-5 py-2.5 rounded-xl hover:bg-brand hover:text-white transition-all font-sans font-bold">Connect</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-48 pb-32 px-6 hero-gradient flex items-center">
+    <main class="pt-48 px-6">
         <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-block px-4 py-1.5 mb-8 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em]">
-                Multinational Solutions Ecosystem
+            <div class="font-mono text-[10px] text-brand border border-brand/20 inline-block px-4 py-1.5 rounded-full mb-10 tracking-[0.4em] uppercase bg-brand/5">
+                Nizamabad • Hyderabad • Global
             </div>
-            <h1 class="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-[0.9]">
-                The nexus of <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">Logic & Creativity.</span>
+            <h1 class="text-6xl md:text-[90px] font-extrabold tracking-tight leading-[0.85] text-white mb-10 glow-text">
+                Intelligent Solutions <br>
+                <span class="opacity-30 italic font-light font-sans">Ecosystem.</span>
             </h1>
-            <p class="text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                Engineering a future where Artificial Intelligence, Structural Design, and Creative Media converge to solve global challenges.
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-14 font-light leading-relaxed">
+                Where design meets destiny. We bridge the gap between technical engineering and creative intelligence to support modern ambition.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#contact" class="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-all shadow-xl shadow-blue-600/20">Initiate Project</a>
-                <a href="#solutions" class="px-10 py-5 glass hover:bg-white/5 text-white rounded-full font-bold transition-all">Explore Ecosystem</a>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#contact" class="px-10 py-5 bg-brand text-white font-bold rounded-2xl hover:scale-105 transition-all shadow-xl shadow-brand/20">Initiate Project</a>
+                <a href="#solutions" class="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all text-sm font-semibold flex items-center gap-3">
+                    Capabilities <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
-    </section>
 
-    <!-- Ecosystem Pillars -->
-    <section id="solutions" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold text-white mb-4">Core Ecosystem Pillars</h2>
-                <p class="text-slate-500">Multidisciplinary expertise at scale.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-10 glass rounded-[2rem] card-hover transition">
-                    <i data-lucide="building-2" class="text-blue-400 w-12 h-12 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-4">Engineering</h3>
-                    <p class="text-slate-400 leading-relaxed">Advanced structural planning and civil solutions powered by the Indian Standard (IS) 456 frameworks.</p>
+        <section id="solutions" class="py-40 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-5">
+                
+                <div class="md:col-span-4 bento-card p-12 group min-h-[400px] flex flex-col justify-end">
+                    <div class="mb-auto">
+                        <i data-lucide="hard-hat" class="w-12 h-12 text-brand mb-6"></i>
+                    </div>
+                    <h3 class="text-4xl font-extrabold text-white mb-4 tracking-tight">Structural Intelligence</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed max-w-md">Civil engineering, structural planning, and AI-assisted cost estimation aligned with IS 456 frameworks.</p>
                 </div>
-                <div class="p-10 glass rounded-[2rem] card-hover transition text-emerald-400">
-                    <i data-lucide="zap" class="w-12 h-12 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-4">AI & Tech</h3>
-                    <p class="text-slate-400 leading-relaxed">Custom automation, cloud architecture (Azure DevOps), and intelligent SaaS deployment.</p>
-                </div>
-                <div class="p-10 glass rounded-[2rem] card-hover transition text-purple-400">
-                    <i data-lucide="layers" class="w-12 h-12 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-4">Media Labs</h3>
-                    <p class="text-slate-400 leading-relaxed">Sonic branding and cinematic production. Fusing high-end tech with digital storytelling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Vision -->
-    <section id="vision" class="py-32 px-6 bg-slate-900/30">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-8">Foundational Vision</h2>
-            <p class="text-3xl md:text-5xl font-light text-white leading-tight">
-                "We don't just build structures; we build <span class="italic font-serif">intelligence</span>. Dream Ladders is the infrastructure for the next generation of global creators."
+                <div class="md:col-span-2 bento-card p-10 group bg-gradient-to-br from-emerald-500/5 to-transparent">
+                    <i data-lucide="terminal" class="w-10 h-10 text-emerald-400 mb-8"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">AI & Automation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">SaaS architecture, Azure DevOps workflows, and custom digital automation platforms.</p>
+                </div>
+
+                <div class="md:col-span-3 bento-card p-10 group bg-gradient-to-bl from-indigo-500/5 to-transparent">
+                    <i data-lucide="mic-2" class="w-10 h-10 text-indigo-400 mb-8"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Creative Media Labs</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Sonic branding, high-fidelity music production, and cinematic visual storytelling.</p>
+                </div>
+
+                <div class="md:col-span-3 bento-card p-10 group">
+                    <i data-lucide="globe" class="w-10 h-10 text-orange-400 mb-8"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Global Network</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">A collaborative marketplace connecting engineers, designers, and innovators worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-40 border-t border-white/5 relative">
+            <div class="max-w-4xl mx-auto text-center px-6">
+                <p class="font-mono text-[10px] text-slate-500 uppercase tracking-[0.6em] mb-16">Core Philosophy</p>
+                <h2 class="text-4xl md:text-6xl font-light leading-[1.1] text-white mb-16">
+                    "Dream Ladders is a collaborative engine turning <span class="text-brand font-normal">high-level concepts</span> into physical and digital reality."
+                </h2>
+                <div class="flex items-center justify-center gap-6">
+                    <div class="h-[1px] w-16 bg-white/10"></div>
+                    <span class="font-mono text-[11px] text-slate-400 tracking-widest uppercase italic">Shambudu Rajesh Kumar</span>
+                    <div class="h-[1px] w-16 bg-white/10"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-40 max-w-3xl mx-auto px-6">
+            <div class="bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-[40px]">
+                <div class="bg-dark rounded-[39px] p-12 md:p-20 shadow-inner">
+                    <h2 class="text-4xl font-bold mb-6 text-center text-white tracking-tight">Inquiry Transmission</h2>
+                    <p class="text-slate-400 text-center text-base mb-14 font-light">Select your sector to initiate the consultation process.</p>
+                    
+                    <form id="leadForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <input type="text" name="name" placeholder="Full Name" required class="input-field rounded-2xl p-5 w-full text-white placeholder-slate-600">
+                            <input type="email" name="email" placeholder="Email Address" required class="input-field rounded-2xl p-5 w-full text-white placeholder-slate-600">
+                        </div>
+                        <select name="industry" class="input-field rounded-2xl p-5 w-full text-slate-400 appearance-none bg-dark cursor-pointer">
+                            <option>Civil & Construction Engineering</option>
+                            <option>AI & Tech Architecture</option>
+                            <option>Creative Media & Design Labs</option>
+                            <option>Global Strategic Partnership</option>
+                        </select>
+                        <textarea name="requirement" rows="5" placeholder="Project context or strategic requirements..." required class="input-field rounded-2xl p-5 w-full text-white placeholder-slate-600"></textarea>
+                        
+                        <button type="submit" id="submitBtn" class="w-full py-6 bg-white text-black font-extrabold text-lg rounded-2xl hover:bg-brand hover:text-white transition-all shadow-2xl shadow-brand/10 uppercase tracking-widest">
+                            Send Transmission
+                        </button>
+                    </form>
+                    <div id="status" class="hidden mt-10 text-center font-mono text-xs uppercase tracking-[0.3em] text-emerald-400 animate-pulse">
+                        Mission Established. Data Synced Successfully.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-24 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-[11px] text-white border border-white/10 font-bold tracking-tighter">DL</div>
+                <span class="font-bold text-[11px] uppercase tracking-[0.4em] text-white">Dream Ladders</span>
+            </div>
+            <p class="font-mono text-[9px] text-slate-600 uppercase tracking-[0.4em] text-center md:text-left leading-relaxed">
+                © 2026 Dream Ladders Ecosystem • Engineered for the Future.
             </p>
+            <div class="flex gap-8 text-slate-500">
+                <a href="#" class="hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-white transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
         </div>
-    </section>
-
-    <!-- CRM Form -->
-    <section id="contact" class="py-32 px-6">
-        <div class="max-w-xl mx-auto glass p-12 rounded-[2.5rem]">
-            <h2 class="text-3xl font-bold mb-8 text-center text-white">Global Inquiry</h2>
-            <form id="leadForm" class="space-y-6">
-                <input type="text" name="name" placeholder="Name / Organization" required class="w-full bg-slate-900/50 border border-slate-800 rounded-xl p-4 focus:border-blue-500 outline-none text-white transition">
-                <input type="email" name="email" placeholder="Email Address" required class="w-full bg-slate-900/50 border border-slate-800 rounded-xl p-4 focus:border-blue-500 outline-none text-white transition">
-                <select name="industry" class="w-full bg-slate-900/50 border border-slate-800 rounded-xl p-4 focus:border-blue-500 outline-none text-slate-400 transition">
-                    <option>Construction & Engineering</option>
-                    <option>Artificial Intelligence / SaaS</option>
-                    <option>Creative Media & Design</option>
-                    <option>Other / General Inquiry</option>
-                </select>
-                <textarea name="requirement" rows="4" placeholder="Briefly describe your project or vision..." required class="w-full bg-slate-900/50 border border-slate-800 rounded-xl p-4 focus:border-blue-500 outline-none text-white transition"></textarea>
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl transition-all shadow-lg shadow-blue-600/30">
-                    Send Transmission
-                </button>
-            </form>
-            <p id="responseMsg" class="mt-6 text-center text-sm hidden"></p>
-        </div>
-    </section>
-
-    <footer class="py-20 border-t border-slate-900 text-center">
-        <div class="flex justify-center gap-6 mb-8 text-slate-500">
-            <i data-lucide="github" class="w-5 h-5 hover:text-white cursor-pointer transition"></i>
-            <i data-lucide="linkedin" class="w-5 h-5 hover:text-white cursor-pointer transition"></i>
-            <i data-lucide="twitter" class="w-5 h-5 hover:text-white cursor-pointer transition"></i>
-        </div>
-        <p class="text-slate-600 text-xs tracking-widest uppercase">Dream Ladders Ecosystem © 2026 | Nizamabad — Hyderabad — Global</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHMOy8XU4LKaVaWOkX6HSE_-qRkqjtDgOavggJ62sMBR4s5Tdg4WXge8s0U_GwuaBf/exec'; // <--- REPLACE THIS!
+        // REPLACING WITH YOUR ACTUAL GOOGLE APPS SCRIPT URL LATER
+        const scriptURL = 'YOUR_APPS_SCRIPT_URL_HERE'; 
         const form = document.getElementById('leadForm');
         const btn = document.getElementById('submitBtn');
-        const msg = document.getElementById('responseMsg');
+        const status = document.getElementById('status');
 
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.disabled = true;
-            btn.innerText = "Processing...";
+            btn.innerText = "AUTHENTICATING...";
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    msg.innerText = "Strategic inquiry received. Our team will connect soon.";
-                    msg.classList.remove('hidden', 'text-red-500');
-                    msg.classList.add('text-emerald-400');
-                    btn.classList.add('hidden');
-                    form.reset();
+                    form.classList.add('opacity-10', 'pointer-events-none', 'blur-sm');
+                    status.classList.remove('hidden');
+                    btn.innerText = "TRANSMITTED";
                 })
                 .catch(error => {
-                    msg.innerText = "Error in transmission. Please try again.";
-                    msg.classList.remove('hidden');
-                    msg.classList.add('text-red-500');
                     btn.disabled = false;
-                    btn.innerText = "Send Transmission";
+                    btn.innerText = "RETRY CONNECTION";
                 });
         });
     </script>
