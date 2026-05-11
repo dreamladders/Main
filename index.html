@@ -128,6 +128,101 @@ to{transform:rotate(360deg);}
 50%{transform:scale(1.05);}
 }
 
+  /* GEOMETRIC LOADER */
+
+.loader-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.dl-logo{
+position:relative;
+width:180px;
+height:180px;
+}
+
+.shape{
+position:absolute;
+opacity:0;
+filter:drop-shadow(0 0 25px rgba(59,130,246,0.35));
+}
+
+/* LEFT */
+
+.shape-left{
+width:70px;
+height:120px;
+background:#6b1d1d;
+clip-path:polygon(0 0,100% 0,65% 20%,65% 100%,0 100%);
+left:15px;
+top:30px;
+border:2px solid rgba(255,255,255,0.08);
+}
+
+/* TOP */
+
+.shape-top{
+width:110px;
+height:45px;
+background:#1f1f1f;
+clip-path:polygon(0 0,100% 0,100% 100%,30% 100%);
+left:52px;
+top:18px;
+border:2px solid rgba(255,255,255,0.08);
+}
+
+/* RIGHT */
+
+.shape-right{
+width:110px;
+height:120px;
+background:#245192;
+clip-path:polygon(0 0,100% 50%,100% 100%,35% 100%,0 70%,45% 70%);
+left:55px;
+top:45px;
+border:2px solid rgba(255,255,255,0.08);
+}
+
+.loader-text{
+margin-top:35px;
+font-size:12px;
+letter-spacing:0.45em;
+text-transform:uppercase;
+color:#94a3b8;
+font-family:'JetBrains Mono',monospace;
+opacity:0;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.dl-logo{
+width:140px;
+height:140px;
+}
+
+.shape-left{
+width:55px;
+height:95px;
+}
+
+.shape-top{
+width:85px;
+height:35px;
+left:40px;
+}
+
+.shape-right{
+width:85px;
+height:95px;
+left:42px;
+}
+
+}
+
 /* NAV */
 
 nav{
@@ -269,9 +364,21 @@ font-size:2.5rem !important;
 
 <!-- LOADER -->
 
+
+
 <div id="loader">
 
-<div class="loader-sphere"></div>
+<div class="loader-container">
+
+<div class="dl-logo">
+
+<div class="shape shape-left"></div>
+
+<div class="shape shape-top"></div>
+
+<div class="shape shape-right"></div>
+
+</div>
 
 <div class="loader-text">
 Dream Ladders
@@ -279,6 +386,10 @@ Dream Ladders
 
 </div>
 
+</div>
+
+
+  
 <!-- NAVBAR -->
 
 <nav class="fixed top-0 left-0 w-full z-50 p-4 md:p-5">
@@ -888,10 +999,75 @@ lucide.createIcons();
 
 window.addEventListener("load", () => {
 
-gsap.to("#loader",{
+const tl = gsap.timeline();
+
+/* INITIAL STATES */
+
+gsap.set(".shape-left",{
+x:-120,
+rotation:-40,
+opacity:0
+});
+
+gsap.set(".shape-top",{
+y:-100,
+rotation:25,
+opacity:0
+});
+
+gsap.set(".shape-right",{
+x:120,
+rotation:40,
+opacity:0
+});
+
+/* ASSEMBLY */
+
+tl.to(".shape-left",{
+x:0,
+rotation:0,
+opacity:1,
+duration:1,
+ease:"power3.out"
+})
+
+.to(".shape-top",{
+y:0,
+rotation:0,
+opacity:1,
+duration:1,
+ease:"power3.out"
+},"-=0.7")
+
+.to(".shape-right",{
+x:0,
+rotation:0,
+opacity:1,
+duration:1,
+ease:"power3.out"
+},"-=0.7")
+
+.to(".dl-logo",{
+scale:1.05,
+duration:0.5,
+ease:"power2.out"
+})
+
+.to(".loader-text",{
+opacity:1,
+y:-5,
+duration:0.8
+},"-=0.3")
+
+.to(".dl-logo",{
+filter:"drop-shadow(0 0 35px rgba(59,130,246,0.55))",
+duration:0.8
+})
+
+.to("#loader",{
 opacity:0,
 duration:1,
-delay:0.6,
+delay:0.5,
 onComplete:()=>{
 document.getElementById("loader").style.display="none";
 }
