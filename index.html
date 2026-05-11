@@ -1026,18 +1026,23 @@ Start building your next intelligent solution.
 
 </div>
 
-<form class="space-y-6">
 
+<form id="contactForm" class="space-y-6">
+  
 <div class="grid md:grid-cols-2 gap-5">
 
-<input
+
+  <input
 type="text"
+name="name"
 placeholder="Full Name"
 class="input-field rounded-2xl p-5 text-white w-full"
 />
 
+
 <input
 type="email"
+name="email"
 placeholder="Email Address"
 class="input-field rounded-2xl p-5 text-white w-full"
 />
@@ -1045,9 +1050,11 @@ class="input-field rounded-2xl p-5 text-white w-full"
 </div>
 
 <select
+name="service"
 class="input-field rounded-2xl p-5 w-full text-slate-400 bg-[#050505]"
 >
 
+  
 <option>Civil & Construction Engineering</option>
 <option>AI & Automation Systems</option>
 <option>Creative Media & Design</option>
@@ -1055,7 +1062,9 @@ class="input-field rounded-2xl p-5 w-full text-slate-400 bg-[#050505]"
 
 </select>
 
-<textarea
+
+  <textarea
+name="message"
 rows="5"
 placeholder="Describe your project..."
 class="input-field rounded-2xl p-5 text-white w-full"
@@ -1279,6 +1288,52 @@ ease:"power3.out"
 
 reveals.forEach(el=>observer.observe(el));
 
+/* CONTACT FORM */
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async (e) => {
+
+e.preventDefault();
+
+const formData = new FormData(form);
+
+const data = {
+
+name: formData.get("name"),
+
+email: formData.get("email"),
+
+service: formData.get("service"),
+
+message: formData.get("message")
+
+};
+
+try{
+
+await fetch("https://script.google.com/macros/s/AKfycbwHMOy8XU4LKaVaWOkX6HSE_-qRkqjtDgOavggJ62sMBR4s5Tdg4WXge8s0U_GwuaBf/exec",{
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+});
+
+alert("Transmission Sent Successfully");
+
+form.reset();
+
+}catch(error){
+
+alert("Transmission Failed");
+
+console.error(error);
+
+}
+
+});
+  
 </script>
 
 
