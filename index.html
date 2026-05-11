@@ -87,27 +87,9 @@ justify-content:center;
 flex-direction:column;
 }
 
-.loader-sphere{
-width:140px;
-height:140px;
-border-radius:999px;
-background:
-radial-gradient(circle at 30% 30%, #60a5fa, #2563eb 40%, transparent 70%);
-animation:pulse 2s infinite ease-in-out;
-box-shadow:
-0 0 40px rgba(59,130,246,0.5),
-0 0 100px rgba(59,130,246,0.2);
-position:relative;
-}
 
-.loader-sphere::before{
-content:"";
-position:absolute;
-inset:-25px;
-border:1px solid rgba(59,130,246,0.2);
-border-radius:999px;
-animation:spin 10s linear infinite;
-}
+
+
 
 .loader-text{
 margin-top:40px;
@@ -123,10 +105,6 @@ from{transform:rotate(0deg);}
 to{transform:rotate(360deg);}
 }
 
-@keyframes pulse{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.05);}
-}
 
   /* GEOMETRIC LOADER */
 
@@ -232,22 +210,11 @@ width:140px;
 height:140px;
 }
 
-.shape-left{
-width:55px;
-height:95px;
-}
 
-.shape-top{
-width:85px;
-height:35px;
-left:40px;
-}
 
-.shape-right{
-width:85px;
-height:95px;
-left:42px;
-}
+
+
+
 
 }
 
@@ -476,7 +443,7 @@ Dream Ladders
 </div>
 
 </div>
-```
+
 
 
   
@@ -1081,158 +1048,7 @@ Global Professional Collaboration
 
 <!-- SCRIPTS -->
 
-<script>
 
-lucide.createIcons();
-
-/* LOADER */
-
-window.addEventListener("load", () => {
-
-const tl = gsap.timeline();
-
-/* INITIAL STATES */
-  
-/* LOADER */
-
-window.addEventListener("load", () => {
-
-const tl = gsap.timeline();
-
-/* INITIAL STATES */
-
-gsap.set(".part-1",{
-x:-120,
-rotation:-25,
-scale:0.8
-});
-
-gsap.set(".part-2",{
-x:120,
-rotation:25,
-scale:0.8
-});
-
-gsap.set(".part-3",{
-y:-80,
-rotation:-10
-});
-
-gsap.set(".part-4",{
-scale:0,
-opacity:0
-});
-
-/* ANIMATION */
-
-tl.to(".part-1",{
-opacity:1,
-strokeDashoffset:0,
-x:0,
-rotation:0,
-scale:1,
-duration:1.2,
-ease:"power3.out"
-})
-
-.to(".part-2",{
-opacity:1,
-strokeDashoffset:0,
-x:0,
-rotation:0,
-scale:1,
-duration:1.2,
-ease:"power3.out"
-},"-=0.9")
-
-.to(".part-3",{
-opacity:1,
-strokeDashoffset:0,
-y:0,
-rotation:0,
-duration:1,
-ease:"power3.out"
-},"-=0.8")
-
-.to(".part-4",{
-opacity:1,
-strokeDashoffset:0,
-scale:1,
-duration:0.8,
-ease:"back.out(2)"
-},"-=0.6")
-
-.to("#dl-svg",{
-scale:1.05,
-duration:0.5,
-ease:"power2.out"
-})
-
-.to(".loader-text",{
-opacity:1,
-y:-5,
-duration:0.8
-},"-=0.2")
-
-.to("#loader",{
-opacity:0,
-duration:1,
-delay:1,
-onComplete:()=>{
-
-document.getElementById("loader").style.display="none";
-
-}
-});
-
-});
-
-
-
-
-
-
-
-
-
-
-.to("#loader",{
-opacity:0,
-duration:1,
-delay:0.5,
-onComplete:()=>{
-document.getElementById("loader").style.display="none";
-}
-});
-
-});
-
-/* REVEAL */
-
-const reveals=document.querySelectorAll(".reveal");
-
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-gsap.to(entry.target,{
-opacity:1,
-y:0,
-duration:1,
-ease:"power3.out"
-});
-
-}
-
-});
-
-},{threshold:0.15});
-
-reveals.forEach(el=>observer.observe(el));
-
-</script>
 
 </body>
 </html>
