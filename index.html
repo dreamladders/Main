@@ -137,18 +137,80 @@ align-items:center;
 justify-content:center;
 }
 
+```css id="q2pfrp"
+/* SVG LOADER */
 
+.loader-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
 
+.dl-logo{
+width:220px;
+height:220px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
 
-/* LEFT */
+#dl-svg{
+width:100%;
+height:100%;
+overflow:visible;
 
+filter:
+drop-shadow(0 0 25px rgba(59,130,246,0.35))
+drop-shadow(0 0 80px rgba(59,130,246,0.15));
 
+animation:floatLogo 5s ease-in-out infinite;
+}
 
-/* TOP */
+.logo-part{
+opacity:0;
+stroke-dasharray:1800;
+stroke-dashoffset:1800;
+transform-origin:center;
+}
 
+.part-1{
+stroke:#93c5fd;
+}
 
+.part-2{
+stroke:#3b82f6;
+}
 
-/* RIGHT */
+.part-3{
+stroke:#60a5fa;
+}
+
+.part-4{
+stroke:#bfdbfe;
+}
+
+@keyframes floatLogo{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+@media(max-width:768px){
+
+.dl-logo{
+width:160px;
+height:160px;
+}
+
+}
 
 
 
