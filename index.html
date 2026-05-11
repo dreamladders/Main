@@ -1047,7 +1047,130 @@ Global Professional Collaboration
 </footer>
 
 <!-- SCRIPTS -->
+<script>
 
+lucide.createIcons();
+
+/* LOADER */
+
+window.addEventListener("load", () => {
+
+const tl = gsap.timeline();
+
+/* INITIAL STATES */
+
+gsap.set(".part-1",{
+x:-120,
+rotation:-25,
+scale:0.8
+});
+
+gsap.set(".part-2",{
+x:120,
+rotation:25,
+scale:0.8
+});
+
+gsap.set(".part-3",{
+y:-80,
+rotation:-10
+});
+
+gsap.set(".part-4",{
+scale:0,
+opacity:0
+});
+
+/* ANIMATION */
+
+tl.to(".part-1",{
+opacity:1,
+strokeDashoffset:0,
+x:0,
+rotation:0,
+scale:1,
+duration:1.2,
+ease:"power3.out"
+})
+
+.to(".part-2",{
+opacity:1,
+strokeDashoffset:0,
+x:0,
+rotation:0,
+scale:1,
+duration:1.2,
+ease:"power3.out"
+},"-=0.9")
+
+.to(".part-3",{
+opacity:1,
+strokeDashoffset:0,
+y:0,
+rotation:0,
+duration:1,
+ease:"power3.out"
+},"-=0.8")
+
+.to(".part-4",{
+opacity:1,
+strokeDashoffset:0,
+scale:1,
+duration:0.8,
+ease:"back.out(2)"
+},"-=0.6")
+
+.to("#dl-svg",{
+scale:1.05,
+duration:0.5,
+ease:"power2.out"
+})
+
+.to(".loader-text",{
+opacity:1,
+y:-5,
+duration:0.8
+},"-=0.2")
+
+.to("#loader",{
+opacity:0,
+duration:1,
+delay:1,
+onComplete:()=>{
+
+document.getElementById("loader").style.display="none";
+
+}
+});
+
+});
+
+/* REVEAL */
+
+const reveals=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+gsap.to(entry.target,{
+opacity:1,
+y:0,
+duration:1,
+ease:"power3.out"
+});
+
+}
+
+});
+
+},{threshold:0.15});
+
+reveals.forEach(el=>observer.observe(el));
+
+</script
 
 
 </body>
