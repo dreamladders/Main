@@ -6,20 +6,30 @@
 
 <title>Dream Ladders | Intelligent Engineering Ecosystem</title>
 
-<meta name="description" content="Dream Ladders is an AI-powered engineering, architecture, automation, and digital innovation ecosystem building intelligent systems for the future.">
+<meta
+name="description"
+content="Dream Ladders is an AI-powered engineering, architecture, automation, and digital innovation ecosystem building intelligent systems for the future."
+>
 
 <meta name="theme-color" content="#050505">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+rel="stylesheet"
+>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
 
 :root{
 --accent:#3b82f6;
@@ -42,80 +52,85 @@ font-family:'Plus Jakarta Sans',sans-serif;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 .bg-grid{
 position:fixed;
 inset:0;
+
 background-image:
 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
 background-size:50px 50px;
+
 z-index:-3;
-mask-image:radial-gradient(circle at center, black 20%, transparent 90%);
+
+mask-image:
+radial-gradient(
+circle at center,
+black 20%,
+transparent 90%
+);
 }
 
 .mesh-gradient{
 position:fixed;
 inset:0;
+
 z-index:-2;
+
 background:
-radial-gradient(circle at top left, rgba(59,130,246,0.2), transparent 40%),
-radial-gradient(circle at bottom right, rgba(16,185,129,0.12), transparent 40%);
+radial-gradient(
+circle at top left,
+rgba(59,130,246,0.2),
+transparent 40%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(16,185,129,0.12),
+transparent 40%
+);
 }
 
 .noise::before{
 content:"";
+
 position:fixed;
 inset:0;
+
 opacity:0.03;
+
 pointer-events:none;
+
 z-index:9999;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+background-image:url(
+"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"
+);
 }
 
-/* LOADER */
+/* =========================================================
+   LOADER
+========================================================= */
 
 #loader{
 position:fixed;
 inset:0;
+
 background:#050505;
+
 z-index:99999;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 flex-direction:column;
 }
-
-
-
-
-
-.loader-text{
-margin-top:40px;
-font-size:12px;
-letter-spacing:0.4em;
-text-transform:uppercase;
-color:#94a3b8;
-font-family:'JetBrains Mono',monospace;
-}
-
-@keyframes spin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
-
-  /* GEOMETRIC LOADER */
-
-.loader-container{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-/* SVG LOADER */
 
 .loader-container{
 display:flex;
@@ -127,69 +142,38 @@ justify-content:center;
 .dl-logo{
 width:220px;
 height:220px;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 position:relative;
 }
-
-
-  .nav-logo{
-width:44px;
-height:44px;
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:16px;
-
-background:rgba(255,255,255,0.04);
-
-border:1px solid rgba(255,255,255,0.08);
-
-box-shadow:
-0 0 20px rgba(59,130,246,0.15);
-
-transition:0.4s;
-}
-
-.nav-logo:hover{
-
-transform:translateY(-2px) scale(1.03);
-
-box-shadow:
-0 0 30px rgba(59,130,246,0.3);
-
-}
-
-.nav-logo svg{
-width:78%;
-height:78%;
-overflow:visible;
-}
-
-
-
-
-
-
 
 #dl-svg{
 width:100%;
 height:100%;
+
 overflow:visible;
 
 filter:
-drop-shadow(0 0 25px rgba(59,130,246,0.35))
-drop-shadow(0 0 80px rgba(59,130,246,0.15));
+drop-shadow(
+0 0 25px rgba(59,130,246,0.35)
+)
+
+drop-shadow(
+0 0 80px rgba(59,130,246,0.15)
+);
 
 animation:floatLogo 5s ease-in-out infinite;
 }
 
 .logo-part{
 opacity:0;
+
 stroke-dasharray:1800;
 stroke-dashoffset:1800;
+
 transform-origin:center;
 }
 
@@ -221,61 +205,96 @@ transform:translateY(-8px);
 
 }
 
-@media(max-width:768px){
-
-.dl-logo{
-width:160px;
-height:160px;
-}
-
-}
-
-
-
 .loader-text{
 margin-top:35px;
+
 font-size:12px;
+
 letter-spacing:0.45em;
+
 text-transform:uppercase;
+
 color:#94a3b8;
+
 font-family:'JetBrains Mono',monospace;
+
 opacity:0;
 }
 
-/* MOBILE */
+/* =========================================================
+   NAV LOGO
+========================================================= */
 
-@media(max-width:768px){
+.nav-logo{
+width:44px;
+height:44px;
 
-.dl-logo{
-width:140px;
-height:140px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:16px;
+
+background:rgba(255,255,255,0.04);
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 20px rgba(59,130,246,0.15);
+
+transition:0.4s;
 }
 
+.nav-logo:hover{
 
+transform:
+translateY(-2px)
+scale(1.03);
 
-
-
-
-
+box-shadow:
+0 0 30px rgba(59,130,246,0.3);
 }
 
-/* NAV */
+.nav-logo svg{
+width:78%;
+height:78%;
+
+overflow:visible;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 nav{
 backdrop-filter:blur(20px);
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero-glow{
 position:absolute;
+
 width:700px;
 height:700px;
-background:radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
+
+background:
+radial-gradient(
+circle,
+rgba(59,130,246,0.18),
+transparent 70%
+);
+
 filter:blur(80px);
+
 top:-250px;
+
 left:50%;
+
 transform:translateX(-50%);
+
 z-index:-1;
 }
 
@@ -289,99 +308,165 @@ text-shadow:
 0 0 60px rgba(59,130,246,0.2);
 }
 
-/* CARDS */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .bento-card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
 border-radius:28px;
-transition:0.5s cubic-bezier(0.23,1,0.32,1);
+
+transition:
+0.5s cubic-bezier(
+0.23,
+1,
+0.32,
+1
+);
+
 overflow:hidden;
+
 position:relative;
 }
 
 .bento-card::before{
+
 content:"";
+
 position:absolute;
+
 inset:0;
-background:linear-gradient(
+
+background:
+linear-gradient(
 120deg,
 transparent,
 rgba(255,255,255,0.03),
 transparent
 );
+
 transform:translateX(-100%);
+
 transition:1s;
 }
 
 .bento-card:hover::before{
-transform:translateX(100%);
+
+transform:
+translateX(100%);
 }
 
 .bento-card:hover{
-transform:translateY(-6px);
-border-color:rgba(59,130,246,0.3);
+
+transform:
+translateY(-6px);
+
+border-color:
+rgba(59,130,246,0.3);
 }
 
-/* BUTTON */
+/* =========================================================
+   BUTTON
+========================================================= */
 
 .btn-primary{
 transition:0.4s;
 }
 
 .btn-primary:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 40px rgba(59,130,246,0.25);
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 10px 40px rgba(59,130,246,0.25);
 }
 
-/* INPUT */
+/* =========================================================
+   INPUT
+========================================================= */
 
 .input-field{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
 transition:0.3s;
 }
 
 .input-field:focus{
+
 outline:none;
+
 border-color:#3b82f6;
-box-shadow:0 0 0 4px rgba(59,130,246,0.1);
+
+box-shadow:
+0 0 0 4px rgba(59,130,246,0.1);
 }
 
-/* REVEAL */
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal{
+
 opacity:0;
-transform:translateY(40px);
+
+transform:
+translateY(40px);
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:768px){
 
 .hero-title{
+
 font-size:42px !important;
+
 line-height:1.02;
+
 letter-spacing:-0.03em;
 }
 
 .hero-glow{
+
 width:380px;
 height:380px;
 }
 
 section{
+
 padding-top:90px !important;
+
 padding-bottom:90px !important;
 }
 
 .bento-card{
+
 border-radius:22px;
 }
 
-
 .text-5xl{
+
 font-size:2.5rem !important;
+}
+
+.dl-logo{
+
+width:140px;
+height:140px;
 }
 
 }
@@ -389,12 +474,17 @@ font-size:2.5rem !important;
 </style>
 </head>
 
+
 <body class="noise">
 
 <div class="bg-grid"></div>
+
 <div class="mesh-gradient"></div>
 
-<!-- LOADER -->
+
+<!-- =========================================================
+     LOADER
+========================================================= -->
 
 <div id="loader">
 
@@ -424,7 +514,8 @@ points="
 310.429,396.224
 378.424,396.193
 378.44,471.944
-230.329,471.972"
+230.329,471.972
+"
 />
 
 <!-- MAIN -->
@@ -440,7 +531,8 @@ points="
 418.803,528.578
 574.94,406.814
 574.984,311.874
-416.252,190.356"
+416.252,190.356
+"
 />
 
 <!-- TOP -->
@@ -482,19 +574,19 @@ Dream Ladders
 </div>
 
 
-
-  
-<!-- NAVBAR -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
 <nav class="fixed top-0 left-0 w-full z-50 p-4 md:p-5">
 
-<div class="max-w-7xl mx-auto flex justify-between items-center bg-black/40 border border-white/10 rounded-3xl px-5 py-3 md:px-6 md:py-4">
+<div
+class="max-w-7xl mx-auto flex justify-between items-center
+bg-black/40 border border-white/10 rounded-3xl
+px-5 py-3 md:px-6 md:py-4"
+>
 
 <div class="flex items-center gap-3">
-
-
-
-
 
 <div class="nav-logo">
 
@@ -517,7 +609,8 @@ points="
 310.429,396.224
 378.424,396.193
 378.44,471.944
-230.329,471.972"
+230.329,471.972
+"
 />
 
 <polygon
@@ -531,7 +624,8 @@ points="
 418.803,528.578
 574.94,406.814
 574.984,311.874
-416.252,190.356"
+416.252,190.356
+"
 />
 
 <polygon
@@ -560,14 +654,6 @@ points="
 
 </div>
 
-
-
-
-
-
-
-  
-
 <div>
 
 <div class="text-sm font-bold tracking-[0.25em] uppercase">
@@ -582,12 +668,42 @@ Intelligent Ecosystem
 
 </div>
 
+
 <div class="hidden md:flex items-center gap-10 text-sm text-slate-400">
 
-<a href="#systems" class="hover:text-white transition">Systems</a>
-<a href="#solutions" class="hover:text-white transition">Solutions</a>
-<a href="#workflow" class="hover:text-white transition">Workflow</a>
-<a href="#contact" class="px-5 py-3 bg-white text-black rounded-2xl font-semibold hover:bg-blue-500 hover:text-white transition">
+<a
+href="#systems"
+class="hover:text-white transition"
+>
+Systems
+</a>
+
+<a
+href="#solutions"
+class="hover:text-white transition"
+>
+Solutions
+</a>
+
+<a
+href="#workflow"
+class="hover:text-white transition"
+>
+Workflow
+</a>
+
+<a
+href="#founder"
+class="hover:text-white transition"
+>
+Founder
+</a>
+
+<a
+href="#contact"
+class="px-5 py-3 bg-white text-black rounded-2xl
+font-semibold hover:bg-blue-500 hover:text-white transition"
+>
 Connect
 </a>
 
@@ -597,17 +713,28 @@ Connect
 
 </nav>
 
-<!-- HERO -->
 
-<section class="relative min-h-[85vh] md:min-h-screen flex items-center justify-center px-6 overflow-hidden md:pt-24 lg:pt-28">
-  
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+class="relative min-h-[85vh] md:min-h-screen
+flex items-center justify-center px-6
+overflow-hidden md:pt-24 lg:pt-28"
+>
+
 <div class="hero-glow"></div>
 
 <div class="max-w-6xl mx-auto text-center relative z-10">
 
-<h1 class="hero-title text-[65px] md:text-[120px] font-extrabold tracking-tight glow-text reveal">
+<h1
+class="hero-title text-[65px] md:text-[120px]
+font-extrabold tracking-tight glow-text reveal"
+>
 
 Engineering
+
 <br>
 
 <span class="opacity-30 italic font-light">
@@ -616,22 +743,40 @@ The Intelligent Future.
 
 </h1>
 
-<p class="reveal max-w-3xl mx-auto text-base md:text-2xl text-slate-400 leading-relaxed mt-10">
 
-Dream Ladders is a next-generation ecosystem integrating engineering,
-AI automation, architecture, and intelligent digital systems into scalable platforms.
+<p
+class="reveal max-w-3xl mx-auto
+text-base md:text-2xl text-slate-400
+leading-relaxed mt-10"
+>
+
+Dream Ladders is a next-generation ecosystem integrating
+engineering, AI automation, architecture, and intelligent
+digital systems into scalable platforms.
 
 </p>
 
-<div class="reveal flex flex-col sm:flex-row justify-center gap-4 mt-14">
 
-<a href="#contact"
-class="btn-primary px-10 py-5 bg-blue-500 rounded-2xl font-bold text-white text-center">
+<div
+class="reveal flex flex-col sm:flex-row
+justify-center gap-4 mt-14"
+>
+
+<a
+href="#contact"
+class="btn-primary px-10 py-5 bg-blue-500
+rounded-2xl font-bold text-white text-center"
+>
 Initiate Project
 </a>
 
-<a href="#systems"
-class="px-10 py-5 border border-white/10 bg-white/5 rounded-2xl font-semibold hover:bg-white/10 transition text-center">
+
+<a
+href="#systems"
+class="px-10 py-5 border border-white/10
+bg-white/5 rounded-2xl font-semibold
+hover:bg-white/10 transition text-center"
+>
 Explore Systems
 </a>
 
@@ -641,40 +786,74 @@ Explore Systems
 
 </section>
 
-<!-- ACTIVE SYSTEMS -->
 
-<section id="systems" class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     ACTIVE SYSTEMS
+========================================================= -->
+
+<section
+id="systems"
+class="py-20 md:py-32 px-6 border-t border-white/5"
+>
 
 <div class="max-w-7xl mx-auto">
 
-<div class="text-center mb-16 md:mb-24 reveal">
 
-<p class="text-[11px] uppercase tracking-[0.45em] text-slate-500 font-mono mb-5">
-Live Engineering Platforms
+<div
+class="text-center mb-16 md:mb-24 reveal"
+>
+
+<p
+class="text-[11px] uppercase tracking-[0.45em]
+text-slate-500 font-mono mb-5"
+>
+Live Intelligent Platforms
 </p>
 
-<h2 class="text-4xl md:text-7xl font-bold tracking-tight mb-6">
+
+<h2
+class="text-4xl md:text-7xl font-bold
+tracking-tight mb-6"
+>
 Active Intelligent Systems
 </h2>
 
-<p class="max-w-3xl mx-auto text-slate-400 text-base md:text-xl leading-relaxed">
-Real AI-powered engineering tools built by Dream Ladders for intelligent construction,
-structural workflows, and automation systems.
+
+<p
+class="max-w-3xl mx-auto
+text-slate-400 text-base md:text-xl
+leading-relaxed"
+>
+
+Real-world intelligent systems and digital platforms
+built by Dream Ladders across engineering, AI,
+automation, and digital collaboration.
+
 </p>
 
 </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-<!-- CARD -->
+<!-- 3 CARDS -->
+
+<div
+class="grid grid-cols-1 md:grid-cols-2
+lg:grid-cols-3 gap-8"
+>
+
+
+<!-- =====================================================
+     AI ESTIMATION
+===================================================== -->
 
 <div class="bento-card reveal">
 
 <img
 src="images/ai-estimation-preview.webp"
-alt="AI Estimation"
-class="w-full h-[260px] md:h-[340px] object-cover"
+alt="Dream Ladders AI Estimation"
+class="w-full h-[260px] md:h-[300px] object-cover"
 />
+
 
 <div class="p-8 md:p-10">
 
@@ -682,31 +861,49 @@ class="w-full h-[260px] md:h-[340px] object-cover"
 Dream Ladders AI Estimation
 </h3>
 
+
 <p class="text-slate-400 leading-relaxed mb-8">
-AI-assisted construction estimation system designed for budgeting,
-quantity workflows, cost intelligence, and project planning.
+
+AI-assisted construction estimation system designed
+for budgeting, quantity workflows, cost intelligence,
+and project planning.
+
 </p>
+
 
 <div class="flex flex-wrap gap-3 mb-8">
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 AI Estimation
 </div>
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 Cost Intelligence
 </div>
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 Civil Engineering
 </div>
 
 </div>
 
+
 <a
 href="https://rajeshshambudu.github.io/dream-ladders-ai/"
 target="_blank"
-class="btn-primary inline-block px-8 py-4 bg-blue-500 rounded-2xl font-bold text-white">
+rel="noopener noreferrer"
+class="btn-primary inline-block px-8 py-4
+bg-blue-500 rounded-2xl font-bold text-white"
+>
 Launch System
 </a>
 
@@ -714,15 +911,19 @@ Launch System
 
 </div>
 
-<!-- CARD -->
+
+<!-- =====================================================
+     IS456
+===================================================== -->
 
 <div class="bento-card reveal">
 
 <img
 src="images/is456-preview.webp"
-alt="IS456 Structural Engine"
-class="w-full h-[260px] md:h-[340px] object-cover"
+alt="IS456 Structural Intelligence"
+class="w-full h-[260px] md:h-[300px] object-cover"
 />
+
 
 <div class="p-8 md:p-10">
 
@@ -730,31 +931,49 @@ class="w-full h-[260px] md:h-[340px] object-cover"
 IS456 Structural Intelligence
 </h3>
 
+
 <p class="text-slate-400 leading-relaxed mb-8">
-Advanced reinforced concrete beam analysis engine based on IS456:2000
-engineering standards and structural intelligence systems.
+
+Advanced reinforced concrete beam analysis engine
+based on IS456:2000 engineering standards and
+structural intelligence systems.
+
 </p>
+
 
 <div class="flex flex-wrap gap-3 mb-8">
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 IS456:2000
 </div>
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 Beam Analysis
 </div>
 
-<div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
 Structural Logic
 </div>
 
 </div>
 
+
 <a
 href="https://rajeshshambudu.github.io/IS456-2000/"
 target="_blank"
-class="btn-primary inline-block px-8 py-4 bg-white text-black rounded-2xl font-bold">
+rel="noopener noreferrer"
+class="btn-primary inline-block px-8 py-4
+bg-white text-black rounded-2xl font-bold"
+>
 Open Engine
 </a>
 
@@ -762,91 +981,243 @@ Open Engine
 
 </div>
 
+
+<!-- =====================================================
+     CONNECTAPP
+===================================================== -->
+
+<div class="bento-card reveal">
+
+<img
+src="images/connectapp-preview.webp"
+alt="ConnectApp Digital Collaboration Platform"
+class="w-full h-[260px] md:h-[300px] object-cover"
+/>
+
+
+<div class="p-8 md:p-10">
+
+<h3 class="text-3xl font-bold mb-5">
+ConnectApp
+</h3>
+
+
+<p class="text-slate-400 leading-relaxed mb-8">
+
+A modern digital collaboration platform built by
+Dream Ladders to help people connect, communicate,
+and interact through a secure digital environment.
+
+</p>
+
+
+<div class="flex flex-wrap gap-3 mb-8">
+
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
+Digital Platform
+</div>
+
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
+Communication
+</div>
+
+<div
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10 text-sm"
+>
+Collaboration
+</div>
+
+</div>
+
+
+<!-- REPLACE THIS URL -->
+
+<a
+href="https://justconnect.dreamladdersservices.workers.dev/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn-primary inline-block px-8 py-4
+bg-white text-black rounded-2xl font-bold"
+>
+Explore ConnectApp
+</a>
+
+</div>
+
+</div>
+
+
 </div>
 
 </div>
 
 </section>
 
-<!-- SOLUTIONS -->
 
-<section id="solutions" class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     SOLUTIONS
+========================================================= -->
+
+<section
+id="solutions"
+class="py-20 md:py-32 px-6 border-t border-white/5"
+>
 
 <div class="max-w-7xl mx-auto">
 
-<div class="text-center mb-16 md:mb-24 reveal">
 
-<p class="text-[11px] uppercase tracking-[0.45em] text-slate-500 font-mono mb-5">
+<div
+class="text-center mb-16 md:mb-24 reveal"
+>
+
+<p
+class="text-[11px] uppercase tracking-[0.45em]
+text-slate-500 font-mono mb-5"
+>
 Core Divisions
 </p>
 
-<h2 class="text-4xl md:text-7xl font-bold tracking-tight">
+
+<h2
+class="text-4xl md:text-7xl
+font-bold tracking-tight"
+>
 Intelligent Capabilities
 </h2>
 
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-6 gap-6">
 
-<div class="md:col-span-4 bento-card p-8 md:p-12 min-h-[350px] reveal">
+<div
+class="grid grid-cols-1 md:grid-cols-6 gap-6"
+>
 
-<i data-lucide="hard-hat" class="w-14 h-14 text-blue-400 mb-10"></i>
+
+<!-- STRUCTURAL -->
+
+<div
+class="md:col-span-4 bento-card
+p-8 md:p-12 min-h-[350px] reveal"
+>
+
+<i
+data-lucide="hard-hat"
+class="w-14 h-14 text-blue-400 mb-10"
+></i>
+
 
 <h3 class="text-4xl font-bold mb-6">
 Structural Intelligence
 </h3>
 
-<p class="text-slate-400 text-lg leading-relaxed max-w-xl">
-AI-assisted civil engineering, structural analysis,
-construction estimation, and intelligent infrastructure systems.
+
+<p
+class="text-slate-400 text-lg
+leading-relaxed max-w-xl"
+>
+
+AI-assisted civil engineering,
+structural analysis, construction estimation,
+and intelligent infrastructure systems.
+
 </p>
 
 </div>
 
-<div class="md:col-span-2 bento-card p-8 md:p-10 reveal">
 
-<i data-lucide="cpu" class="w-12 h-12 text-emerald-400 mb-8"></i>
+<!-- AI -->
+
+<div
+class="md:col-span-2 bento-card
+p-8 md:p-10 reveal"
+>
+
+<i
+data-lucide="cpu"
+class="w-12 h-12 text-emerald-400 mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 AI & Automation
 </h3>
 
+
 <p class="text-slate-400 leading-relaxed">
+
 Cloud infrastructure, automation systems,
-workflow orchestration, and scalable digital operations.
+workflow orchestration, and scalable
+digital operations.
+
 </p>
 
 </div>
 
-<div class="md:col-span-3 bento-card p-8 md:p-10 reveal">
 
-<i data-lucide="music-4" class="w-12 h-12 text-indigo-400 mb-8"></i>
+<!-- CREATIVE -->
+
+<div
+class="md:col-span-3 bento-card
+p-8 md:p-10 reveal"
+>
+
+<i
+data-lucide="music-4"
+class="w-12 h-12 text-indigo-400 mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 Creative Media Labs
 </h3>
 
+
 <p class="text-slate-400 leading-relaxed">
+
 AI-assisted visual storytelling, branding,
-architectural visualization, and cinematic media systems.
+architectural visualization, and cinematic
+media systems.
+
 </p>
 
 </div>
 
-<div class="md:col-span-3 bento-card p-8 md:p-10 reveal">
 
-<i data-lucide="globe-2" class="w-12 h-12 text-orange-400 mb-8"></i>
+<!-- COLLABORATION -->
+
+<div
+class="md:col-span-3 bento-card
+p-8 md:p-10 reveal"
+>
+
+<i
+data-lucide="globe-2"
+class="w-12 h-12 text-orange-400 mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 Global Collaboration
 </h3>
 
+
 <p class="text-slate-400 leading-relaxed">
+
 Connecting engineers, creators, developers,
-architects, and innovators through remote-first ecosystems.
+architects, and innovators through
+remote-first ecosystems.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -854,81 +1225,161 @@ architects, and innovators through remote-first ecosystems.
 
 </section>
 
-<!-- WORKFLOW -->
 
-<section id="workflow" class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     WORKFLOW
+========================================================= -->
+
+<section
+id="workflow"
+class="py-20 md:py-32 px-6 border-t border-white/5"
+>
 
 <div class="max-w-7xl mx-auto">
 
-<div class="text-center mb-16 md:mb-24 reveal">
 
-<p class="text-[11px] uppercase tracking-[0.45em] text-slate-500 font-mono mb-5">
+<div
+class="text-center mb-16 md:mb-24 reveal"
+>
+
+<p
+class="text-[11px] uppercase tracking-[0.45em]
+text-slate-500 font-mono mb-5"
+>
 Workflow Architecture
 </p>
 
-<h2 class="text-4xl md:text-7xl font-bold tracking-tight">
+
+<h2
+class="text-4xl md:text-7xl
+font-bold tracking-tight"
+>
 Engineering Intelligence Pipeline
 </h2>
 
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-<div class="bento-card p-8 md:p-10 text-center reveal">
+<div
+class="grid grid-cols-1 md:grid-cols-4 gap-8"
+>
 
-<i data-lucide="clipboard-list" class="w-12 h-12 text-blue-400 mx-auto mb-8"></i>
+
+<!-- STEP 1 -->
+
+<div
+class="bento-card p-8 md:p-10
+text-center reveal"
+>
+
+<i
+data-lucide="clipboard-list"
+class="w-12 h-12 text-blue-400
+mx-auto mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 Requirement Analysis
 </h3>
 
+
 <p class="text-slate-400">
-Project requirements and engineering objectives are analyzed intelligently.
+
+Project requirements and engineering
+objectives are analyzed intelligently.
+
 </p>
 
 </div>
 
-<div class="bento-card p-8 md:p-10 text-center reveal">
 
-<i data-lucide="cpu" class="w-12 h-12 text-emerald-400 mx-auto mb-8"></i>
+<!-- STEP 2 -->
+
+<div
+class="bento-card p-8 md:p-10
+text-center reveal"
+>
+
+<i
+data-lucide="cpu"
+class="w-12 h-12 text-emerald-400
+mx-auto mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 AI Processing
 </h3>
 
+
 <p class="text-slate-400">
-AI-assisted workflows generate estimations and engineering outputs.
+
+AI-assisted workflows generate
+estimations and engineering outputs.
+
 </p>
 
 </div>
 
-<div class="bento-card p-8 md:p-10 text-center reveal">
 
-<i data-lucide="shield-check" class="w-12 h-12 text-indigo-400 mx-auto mb-8"></i>
+<!-- STEP 3 -->
+
+<div
+class="bento-card p-8 md:p-10
+text-center reveal"
+>
+
+<i
+data-lucide="shield-check"
+class="w-12 h-12 text-indigo-400
+mx-auto mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 Engineering Validation
 </h3>
 
+
 <p class="text-slate-400">
-Outputs are validated through structural and technical systems.
+
+Outputs are validated through
+structural and technical systems.
+
 </p>
 
 </div>
 
-<div class="bento-card p-8 md:p-10 text-center reveal">
 
-<i data-lucide="rocket" class="w-12 h-12 text-orange-400 mx-auto mb-8"></i>
+<!-- STEP 4 -->
+
+<div
+class="bento-card p-8 md:p-10
+text-center reveal"
+>
+
+<i
+data-lucide="rocket"
+class="w-12 h-12 text-orange-400
+mx-auto mb-8"
+></i>
+
 
 <h3 class="text-2xl font-bold mb-4">
 Project Delivery
 </h3>
 
+
 <p class="text-slate-400">
-Intelligent systems are deployed into scalable engineering solutions.
+
+Intelligent systems are deployed
+into scalable engineering solutions.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -936,55 +1387,121 @@ Intelligent systems are deployed into scalable engineering solutions.
 
 </section>
 
-<!-- FOUNDER -->
 
-<section id="founder" class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     FOUNDER
+========================================================= -->
 
-<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+<section
+id="founder"
+class="py-20 md:py-32 px-6
+border-t border-white/5"
+>
+
+<div
+class="max-w-6xl mx-auto
+grid grid-cols-1 lg:grid-cols-2
+gap-14 items-center"
+>
+
+
+<!-- FOUNDER IMAGE -->
 
 <div class="reveal">
 
 <img
 src="images/founder.webp"
-alt="Founder"
-class="rounded-[32px] border border-white/10 w-full"
+alt="Shambudu Rajesh Kumar - Founder of Dream Ladders"
+class="rounded-[32px]
+border border-white/10 w-full"
 />
 
 </div>
 
+
+<!-- FOUNDER CONTENT -->
+
 <div class="reveal">
 
-<p class="text-[11px] uppercase tracking-[0.45em] text-slate-500 font-mono mb-6">
+
+<p
+class="text-[11px] uppercase
+tracking-[0.45em] text-slate-500
+font-mono mb-6"
+>
 Founder Vision
 </p>
 
-<h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">
+
+<h2
+class="text-4xl md:text-6xl
+font-bold tracking-tight mb-8"
+>
 Engineering the future through intelligent systems.
 </h2>
 
-<p class="text-slate-400 text-lg leading-relaxed mb-8">
-Dream Ladders integrates engineering, AI automation,
-architecture, and scalable digital systems into one unified ecosystem.
+
+<p
+class="text-slate-400 text-lg
+leading-relaxed mb-8"
+>
+
+Dream Ladders integrates engineering,
+AI automation, architecture, and scalable
+digital systems into one unified ecosystem.
+
 </p>
+
 
 <div class="space-y-4 mb-10">
 
-<div class="flex items-center gap-4">
-<div class="w-3 h-3 rounded-full bg-blue-400"></div>
-<div class="text-slate-300">AI-powered engineering systems</div>
-</div>
 
 <div class="flex items-center gap-4">
-<div class="w-3 h-3 rounded-full bg-emerald-400"></div>
-<div class="text-slate-300">Structural intelligence & automation</div>
-</div>
 
-<div class="flex items-center gap-4">
-<div class="w-3 h-3 rounded-full bg-indigo-400"></div>
-<div class="text-slate-300">Future-ready scalable platforms</div>
+<div
+class="w-3 h-3 rounded-full
+bg-blue-400"
+></div>
+
+<div class="text-slate-300">
+AI-powered engineering systems
 </div>
 
 </div>
+
+
+<div class="flex items-center gap-4">
+
+<div
+class="w-3 h-3 rounded-full
+bg-emerald-400"
+></div>
+
+<div class="text-slate-300">
+Structural intelligence & automation
+</div>
+
+</div>
+
+
+<div class="flex items-center gap-4">
+
+<div
+class="w-3 h-3 rounded-full
+bg-indigo-400"
+></div>
+
+<div class="text-slate-300">
+Future-ready scalable platforms
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- FOUNDER NAME -->
 
 <div>
 
@@ -998,27 +1515,140 @@ Founder • Dream Ladders
 
 </div>
 
+
+<!-- =====================================================
+     BUILT BEYOND ONE VISION
+===================================================== -->
+
+<div
+class="mt-12 pt-10
+border-t border-white/10"
+>
+
+
+<p
+class="text-[11px] uppercase
+tracking-[0.45em]
+text-slate-500 font-mono mb-5"
+>
+Built Beyond One Vision
+</p>
+
+
+<h3
+class="text-2xl md:text-3xl
+font-bold mb-5"
+>
+Building together. Creating together. Growing together.
+</h3>
+
+
+<p
+class="text-slate-400
+leading-relaxed
+text-base md:text-lg"
+>
+
+Dream Ladders is envisioned as a
+collaborative ecosystem where engineers,
+developers, creators, architects, and
+innovators come together to learn,
+build, and grow.
+
+</p>
+
+
+<div
+class="flex flex-wrap gap-3 mt-7"
+>
+
+<span
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10
+text-sm text-slate-300"
+>
+Collaborate
+</span>
+
+
+<span
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10
+text-sm text-slate-300"
+>
+Build
+</span>
+
+
+<span
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10
+text-sm text-slate-300"
+>
+Learn
+</span>
+
+
+<span
+class="px-4 py-2 rounded-full
+bg-white/5 border border-white/10
+text-sm text-slate-300"
+>
+Grow
+</span>
+
+</div>
+
+</div>
+
+
 </div>
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
 
-<section id="contact" class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-<div class="max-w-4xl mx-auto reveal">
+<section
+id="contact"
+class="py-20 md:py-32 px-6
+border-t border-white/5"
+>
 
-<div class="p-[1px] rounded-[40px] bg-gradient-to-b from-white/20 to-transparent">
+<div
+class="max-w-4xl mx-auto reveal"
+>
 
-<div class="bg-[#050505] rounded-[40px] p-8 md:p-20">
 
-<div class="text-center mb-14">
+<div
+class="p-[1px] rounded-[40px]
+bg-gradient-to-b from-white/20
+to-transparent"
+>
 
-<h2 class="text-4xl md:text-5xl font-bold mb-6">
+
+<div
+class="bg-[#050505]
+rounded-[40px]
+p-8 md:p-20"
+>
+
+
+<div
+class="text-center mb-14"
+>
+
+<h2
+class="text-4xl md:text-5xl
+font-bold mb-6"
+>
 Initiate Consultation
 </h2>
+
 
 <p class="text-slate-400 text-lg">
 Start building your next intelligent solution.
@@ -1027,16 +1657,24 @@ Start building your next intelligent solution.
 </div>
 
 
-<form id="contactForm" class="space-y-6">
-  
-<div class="grid md:grid-cols-2 gap-5">
+<form
+id="contactForm"
+class="space-y-6"
+>
 
 
-  <input
+<div
+class="grid md:grid-cols-2 gap-5"
+>
+
+
+<input
 type="text"
 name="name"
 placeholder="Full Name"
-class="input-field rounded-2xl p-5 text-white w-full"
+required
+class="input-field rounded-2xl
+p-5 text-white w-full"
 />
 
 
@@ -1044,38 +1682,64 @@ class="input-field rounded-2xl p-5 text-white w-full"
 type="email"
 name="email"
 placeholder="Email Address"
-class="input-field rounded-2xl p-5 text-white w-full"
+required
+class="input-field rounded-2xl
+p-5 text-white w-full"
 />
+
 
 </div>
 
+
 <select
 name="service"
-class="input-field rounded-2xl p-5 w-full text-slate-400 bg-[#050505]"
+class="input-field rounded-2xl
+p-5 w-full text-slate-400
+bg-[#050505]"
 >
 
-  
-<option>Civil & Construction Engineering</option>
-<option>AI & Automation Systems</option>
-<option>Creative Media & Design</option>
-<option>Strategic Partnership</option>
+<option>
+Civil & Construction Engineering
+</option>
+
+<option>
+AI & Automation Systems
+</option>
+
+<option>
+Creative Media & Design
+</option>
+
+<option>
+Digital Platforms & Applications
+</option>
+
+<option>
+Strategic Partnership
+</option>
 
 </select>
 
 
-  <textarea
+<textarea
 name="message"
 rows="5"
 placeholder="Describe your project..."
-class="input-field rounded-2xl p-5 text-white w-full"
+required
+class="input-field rounded-2xl
+p-5 text-white w-full"
 ></textarea>
+
 
 <button
 type="submit"
-class="btn-primary w-full py-6 bg-white text-black rounded-2xl font-bold text-lg"
+class="btn-primary w-full py-6
+bg-white text-black
+rounded-2xl font-bold text-lg"
 >
 Send Transmission
 </button>
+
 
 </form>
 
@@ -1087,54 +1751,114 @@ Send Transmission
 
 </section>
 
-<!-- TECH STACK -->
 
-<section class="py-20 md:py-32 px-6 border-t border-white/5">
+<!-- =========================================================
+     TECH STACK
+========================================================= -->
 
-<div class="max-w-7xl mx-auto text-center">
+<section
+class="py-20 md:py-32 px-6
+border-t border-white/5"
+>
 
-<div class="mb-16 md:mb-24 reveal">
+<div
+class="max-w-7xl mx-auto text-center"
+>
 
-<p class="text-[11px] uppercase tracking-[0.45em] text-slate-500 font-mono mb-5">
+
+<div
+class="mb-16 md:mb-24 reveal"
+>
+
+
+<p
+class="text-[11px] uppercase
+tracking-[0.45em]
+text-slate-500 font-mono mb-5"
+>
 Technology Stack
 </p>
 
-<h2 class="text-4xl md:text-7xl font-bold tracking-tight">
+
+<h2
+class="text-4xl md:text-7xl
+font-bold tracking-tight"
+>
 Powered By Intelligent Infrastructure
 </h2>
 
+
 </div>
 
-<div class="flex flex-wrap justify-center gap-5 reveal">
+
+<div
+class="flex flex-wrap
+justify-center gap-5 reveal"
+>
 
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Artificial Intelligence
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Engineering Intelligence
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Cloud & Automation
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Data-Driven Systems
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Creative Media & Audio
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Scalable Digital Infrastructure
 </div>
 
-<div class="px-6 py-4 rounded-2xl border border-white/10 bg-white/5">
+
+<div
+class="px-6 py-4 rounded-2xl
+border border-white/10
+bg-white/5"
+>
 Global Professional Collaboration
 </div>
+
 
 </div>
 
@@ -1142,200 +1866,338 @@ Global Professional Collaboration
 
 </section>
 
-<!-- FOOTER -->
 
-<footer class="border-t border-white/5 py-16 px-6">
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<footer
+class="border-t border-white/5
+py-16 px-6"
+>
+
+<div
+class="max-w-7xl mx-auto
+flex flex-col md:flex-row
+justify-between items-center
+gap-6"
+>
+
 
 <p class="text-slate-600 text-sm">
-© 2026 Dream Ladders Ecosystem. All rights reserved.
+
+© 2026 Dream Ladders Ecosystem.
+All rights reserved.
+
 </p>
 
-<div class="flex items-center gap-6 text-slate-500">
+
+<div
+class="flex items-center
+gap-6 text-slate-500"
+>
 
 <i data-lucide="github"></i>
+
 <i data-lucide="linkedin"></i>
+
 <i data-lucide="instagram"></i>
 
 </div>
+
 
 </div>
 
 </footer>
 
-<!-- SCRIPTS -->
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
 lucide.createIcons();
 
-/* LOADER */
+
+/* =========================================================
+   LOADER
+========================================================= */
 
 window.addEventListener("load", () => {
 
 const tl = gsap.timeline();
 
+
 /* INITIAL STATES */
 
 gsap.set(".part-1",{
+
 x:-120,
 rotation:-25,
 scale:0.8
+
 });
 
+
 gsap.set(".part-2",{
+
 x:120,
 rotation:25,
 scale:0.8
+
 });
+
 
 gsap.set(".part-3",{
+
 y:-80,
 rotation:-10
+
 });
 
+
 gsap.set(".part-4",{
+
 scale:0,
 opacity:0
+
 });
+
 
 /* ANIMATION */
 
 tl.to(".part-1",{
+
 opacity:1,
+
 strokeDashoffset:0,
+
 x:0,
+
 rotation:0,
+
 scale:1,
+
 duration:1.2,
+
 ease:"power3.out"
+
 })
+
 
 .to(".part-2",{
+
 opacity:1,
+
 strokeDashoffset:0,
+
 x:0,
+
 rotation:0,
+
 scale:1,
+
 duration:1.2,
+
 ease:"power3.out"
+
 },"-=0.9")
 
+
 .to(".part-3",{
+
 opacity:1,
+
 strokeDashoffset:0,
+
 y:0,
+
 rotation:0,
+
 duration:1,
+
 ease:"power3.out"
+
 },"-=0.8")
 
+
 .to(".part-4",{
+
 opacity:1,
+
 strokeDashoffset:0,
+
 scale:1,
+
 duration:0.8,
+
 ease:"back.out(2)"
+
 },"-=0.6")
 
+
 .to("#dl-svg",{
+
 scale:1.05,
+
 duration:0.5,
+
 ease:"power2.out"
+
 })
 
+
 .to(".loader-text",{
+
 opacity:1,
+
 y:-5,
+
 duration:0.8
+
 },"-=0.2")
 
+
 .to("#loader",{
+
 opacity:0,
+
 duration:1,
+
 delay:1,
+
 onComplete:()=>{
 
-document.getElementById("loader").style.display="none";
+document
+.getElementById("loader")
+.style.display="none";
 
 }
-});
 
 });
 
-/* REVEAL */
+});
 
-const reveals=document.querySelectorAll(".reveal");
 
-const observer=new IntersectionObserver((entries)=>{
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
 
 entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
 gsap.to(entry.target,{
+
 opacity:1,
+
 y:0,
+
 duration:1,
+
 ease:"power3.out"
+
 });
 
 }
 
 });
 
-},{threshold:0.15});
+},
 
-reveals.forEach(el=>observer.observe(el));
+{
+threshold:0.15
+}
 
-/* CONTACT FORM */
+);
 
-const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", async (e) => {
+reveals.forEach(
+el=>observer.observe(el)
+);
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const form =
+document.getElementById("contactForm");
+
+
+form.addEventListener(
+"submit",
+async (e)=>{
 
 e.preventDefault();
 
-const formData = new FormData(form);
+
+const formData =
+new FormData(form);
+
 
 const data = {
 
-name: formData.get("name"),
+name:
+formData.get("name"),
 
-email: formData.get("email"),
+email:
+formData.get("email"),
 
-service: formData.get("service"),
+service:
+formData.get("service"),
 
-message: formData.get("message")
+message:
+formData.get("message")
 
 };
 
+
 try{
 
-await fetch("https://script.google.com/macros/s/AKfycbywfSOCXUVuvKKEx0X775l7V5-LEw8A-I0W6ZdNOUOFHuh0GHhBGIS8FQUN9bGuXEns/exec",{
+await fetch(
+"https://script.google.com/macros/s/AKfycbywfSOCXUVuvKKEx0X775l7V5-LEw8A-I0W6ZdNOUOFhuh0GHhBGIS8FQUN9bGuXEns/exec",
+{
 
 method:"POST",
 
 body:JSON.stringify(data)
 
-});
+}
+);
 
-alert("Transmission Sent Successfully");
+
+alert(
+"Transmission Sent Successfully"
+);
+
 
 form.reset();
 
+
 }catch(error){
 
-alert("Transmission Failed");
+alert(
+"Transmission Failed"
+);
 
 console.error(error);
 
 }
 
 });
-  
-</script>
 
+</script>
 
 </body>
 </html>
